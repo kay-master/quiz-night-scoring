@@ -3,6 +3,7 @@ import {
   getCorrectAnswer,
   type AnswerKeyEntry,
 } from '../domain/answer-key.js';
+import { sortStandings, type StandingEntry } from '../domain/standings.js';
 import type { TeamSubmission } from '../domain/team-submission.js';
 import { matchesAnswer } from './answer-matcher.js';
 import {
@@ -43,4 +44,14 @@ export const scoreTeamSubmission = (
   });
 
   return total;
+};
+
+export const scoreNight = (
+  teams: readonly TeamSubmission[],
+): StandingEntry[] => {
+  const entries = teams.map((team) => ({
+    teamName: team.teamName,
+    totalScore: scoreTeamSubmission(team),
+  }));
+  return sortStandings(entries);
 };
