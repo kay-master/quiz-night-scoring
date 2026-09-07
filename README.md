@@ -2,7 +2,9 @@
 
 Scores one quiz night and prints final standings.
 
-## Requirements
+Product requirements (scoring rules, invalid-input policies, acceptance criteria): see [`requirements.md`](./requirements.md).
+
+## Runtime requirements
 
 - Node.js 20 or newer
 - npm 10+ (comes with Node)
