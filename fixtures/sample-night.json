@@ -1,0 +1,10 @@
+[
+  {
+    "teamName": "The Quizzengers",
+    "answers": [
+      { "round": 1, "question": 1, "answer": "paris" },
+      { "round": 1, "question": 2, "answer": "1968" },
+      { "round": 2, "question": 1, "answer": "Blue Whale" }
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "name": "quiz-night-scoring",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Score one quiz night and produce final standings",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "score": "tsx src/cli/score-night.ts",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.8"
+  }
+}
