@@ -4,15 +4,14 @@ import type { StandingEntry } from '../domain/standings.js';
 import { scoreNight } from '../scoring/scorer.js';
 import { validateNightSubmissions } from '../validation/submission-validator.js';
 
+export const DEFAULT_NIGHT_PATH = 'fixtures/sample-night.json';
+
 export const parseArgs = (
   argv: readonly string[],
-): { ok: true; filePath: string } | { ok: false; message: string } => {
+): { ok: true; filePath: string } => {
   const filePath = argv[2];
   if (typeof filePath !== 'string' || filePath.trim() === '') {
-    return {
-      ok: false,
-      message: 'Usage: npm run score -- <path-to-night.json>',
-    };
+    return { ok: true, filePath: DEFAULT_NIGHT_PATH };
   }
   return { ok: true, filePath };
 };
@@ -26,19 +25,16 @@ export const runScoreNight = async (
   argv: readonly string[],
   readTextFile: (path: string) => Promise<string>,
 ): Promise<{ exitCode: number; stdout: string; stderr: string }> => {
-  const parsed = parseArgs(argv);
-  if (!parsed.ok) {
-    return { exitCode: 1, stdout: '', stderr: `${parsed.message}\n` };
-  }
+  const { filePath } = parseArgs(argv);
 
   let text: string;
   try {
-    text = await readTextFile(parsed.filePath);
+    text = await readTextFile(filePath);
   } catch {
     return {
       exitCode: 1,
       stdout: '',
-      stderr: `Could not read file: ${parsed.filePath}\n`,
+      stderr: `Could not read file: ${filePath}\n`,
     };
   }
 

@@ -24,10 +24,27 @@ npm test
 ## Score a night
 
 ```bash
-npm run score -- fixtures/sample-night.json
+npm run score
 ```
 
-You should see The Quizzengers with total `2`.
+Defaults to `fixtures/sample-night.json`. Pass another file when you want:
+
+```bash
+npm run score -- path/to/night.json
+```
+
+You should see standings like:
+
+```text
+Aces	3
+Brainy Bunch	3
+The Quizzengers	2
+Latecomers	1
+Zed Squad	1
+Silent Knights	0
+```
+
+Highest total first. Ties break alphabetically by team name.
 
 ## Invalid-input policies
 
