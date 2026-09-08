@@ -4,12 +4,26 @@ Score one quiz night from a JSON file and print final standings.
 
 Product rules live in [`requirements.md`](./requirements.md).
 
+## Quick start
+
+From a clean machine:
+
+```bash
+git clone https://github.com/kay-master/quiz-night-scoring.git
+cd quiz-night-scoring
+npm install
+npm test
+npm run score
+```
+
 ## Runtime
 
 - Node.js 20 or newer
 - npm 10+ (ships with Node)
 
 ## Install
+
+If you already cloned the repo:
 
 ```bash
 npm install
