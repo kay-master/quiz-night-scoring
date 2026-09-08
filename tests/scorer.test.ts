@@ -56,4 +56,23 @@ describe('scoreTeamSubmission', () => {
     });
     expect(total).toBe(1);
   });
+
+  it('scores an empty answers list as zero', () => {
+    const total = scoreTeamSubmission({
+      teamName: 'Silent Knights',
+      answers: [],
+    });
+    expect(total).toBe(0);
+  });
+
+  it('keeps the first duplicate even when a later answer would match', () => {
+    const total = scoreTeamSubmission({
+      teamName: 'Second Guess',
+      answers: [
+        { round: 1, question: 1, answer: 'London' },
+        { round: 1, question: 1, answer: 'Paris' },
+      ],
+    });
+    expect(total).toBe(0);
+  });
 });
